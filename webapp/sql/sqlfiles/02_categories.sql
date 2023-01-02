@@ -1,5 +1,8 @@
 use `isucari`;
 
+SET CHARACTER_SET_CLIENT = utf8;
+SET CHARACTER_SET_CONNECTION = utf8;
+
 INSERT INTO categories (`id`,`parent_id`,`category_name`) VALUES
 (1,0,"ソファー"),
 (2,1,"一人掛けソファー"),
