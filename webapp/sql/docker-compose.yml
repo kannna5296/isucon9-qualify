@@ -1,0 +1,14 @@
+version: '3'
+services:
+  db:
+    image: mysql:8.0
+    container_name: isudb
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      #- ./datadir:/var/lib/mysql #永続化させたい場合はコメントアウト外す
+      - ./conf/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./sqlfiles:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
